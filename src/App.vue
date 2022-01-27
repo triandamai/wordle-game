@@ -123,7 +123,8 @@ const validateLetter = ()=>{
 </script>
 
 <template>
-<!-- message -->
+<div class="w-screen h-screen bg-gray-800">
+  <!-- message -->
   <Transition>
     <div >
 
@@ -131,7 +132,14 @@ const validateLetter = ()=>{
   </Transition>
   <!--  -->
   <header>
-    <h1>WORDLE</h1>
+    <h1 class="text-gray-400">WORDLE</h1>
+     <a
+      id="source-link"
+      class="text-gray-400"
+      href="https://github.com/triandamai/wordle-game"
+      target="_blank"
+      >Source</a
+    >
   </header>
   <div id="board">
     <div v-for="(row,indexRow) in board" :key="indexRow" class="row">
@@ -158,6 +166,8 @@ const validateLetter = ()=>{
     </div>
   </div>
   <Keyboard @key="onKeyPress" :letter-state="letterStates"/>
+
+</div>
 </template>
 <style scoped>
 
@@ -186,6 +196,7 @@ const validateLetter = ()=>{
   text-transform: uppercase;
   user-select: none;
   position: relative;
+  @apply text-gray-400;
 }
 .tile.filled {
   animation: zoom 0.2s;
@@ -206,7 +217,7 @@ const validateLetter = ()=>{
   -webkit-backface-visibility: hidden;
 }
 .tile .front {
-  border: 2px solid #d3d6da;
+  border: 1px solid #d3d6da;
 }
 </style>
 

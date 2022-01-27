@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { ref ,onUnmounted, computed} from "vue"
 import {LetterState,getColorState} from "./types";
-
-import Keyboard from "./components/Keyboard.vue"
 import { kamus ,initTile,getKatahariIni} from "./datum";
+import Keyboard from "./components/Keyboard.vue"
 
 
 const onKeyup = (e:KeyboardEvent) => onKeyPress(e.key)
@@ -12,20 +11,18 @@ const onKeyup = (e:KeyboardEvent) => onKeyPress(e.key)
 const answer = getKatahariIni()
 
 let allowInput = true
-const board = ref<Array<Array<{letter:string,state:LetterState}>>>(
-  initTile
-)
+const board = ref<Array<Array<{letter:string,state:LetterState}>>>(initTile)
 const currentRowIndex = ref<number>(0)
-
 const currentRow = computed(()=>board.value[currentRowIndex.value])
 const letterStates = ref<Record<string,LetterState>>({})
 
-
+//bisa input dari keyboard
 window.addEventListener("keyup",onKeyup)
 onUnmounted(()=>{
   window.removeEventListener("keyup",onKeyup)
 })
 
+//inout dari virtual keyboard
 const onKeyPress=(char:string)=>{
   if(!allowInput) return false
   if (/^[a-zA-Z]$/.test(char)) {
@@ -37,7 +34,6 @@ const onKeyPress=(char:string)=>{
   }
   
 }
-
 
 const fillTile = (char:string)=>{
   for(let i =0;i<currentRow.value.length;i++){
@@ -100,13 +96,14 @@ const validateLetter = ()=>{
         }
       }
     })
+
     //ga boleh ngisi lagi
     allowInput =false
 
     if(currentRow.value.every((tile)=>tile.state === LetterState.CORRECT)){
       alert("yey benar")
     }else if(currentRowIndex.value < board.value.length - 1){
-      //pindah ke selanjutnya
+      //pindah ke baris selanjutnya
       currentRowIndex.value++
       setTimeout(()=>{
         allowInput = true

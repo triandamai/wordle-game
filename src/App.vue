@@ -123,7 +123,7 @@ const validateLetter = ()=>{
 </script>
 
 <template>
-<div class="w-screen h-screen bg-gray-800">
+<div class="max-w-md h-screen bg-gray-800">
   <!-- message -->
   <Transition>
     <div >

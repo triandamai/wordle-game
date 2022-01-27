@@ -3,13 +3,14 @@ import { ref ,onUnmounted, computed} from "vue"
 import {LetterState,getColorState} from "./types";
 
 import Keyboard from "./components/Keyboard.vue"
-import { kamus ,initTile} from "./datum";
+import { kamus ,initTile,getKatahariIni} from "./datum";
 
 
 const onKeyup = (e:KeyboardEvent) => onKeyPress(e.key)
 
 
-const answer = "trian"
+const answer = getKatahariIni()
+console.log(answer)
 let allowInput = true
 const board = ref<Array<Array<{letter:string,state:LetterState}>>>(
   initTile
@@ -36,6 +37,7 @@ const onKeyPress=(char:string)=>{
   }
   
 }
+
 
 const fillTile = (char:string)=>{
   for(let i =0;i<currentRow.value.length;i++){

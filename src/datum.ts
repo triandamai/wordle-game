@@ -1,13 +1,33 @@
 import {LetterState} from "./types"
 
 const kamus =[
-    "mario",
-    "trian",
-    "iqbal",
-    "yakob",
-    "fahmi",
-    "rizza",
-    "aling"
+    "abang",
+    "bagus",
+    "cabai",
+    "dadar",
+    "edisi",
+    "gajah",
+    "habis",
+    "idola",
+    "jabat",
+    "kabar",
+    "labas",
+    "magis",
+    "nafsu",
+    "obral",
+    "pakar",
+    "radio",
+    "sabar",
+    "tabah",
+    "udang",
+    "valid",
+    "wabah",
+    "xenia",
+    "yakin",
+    "zakat",
+    "abjad",
+    "badak",
+    "babak"
 ]
 
 const initTile = [
@@ -55,27 +75,8 @@ const initTile = [
         state:LetterState.INIT
       }
     ],
-    [{
-        letter:'',
-        state:LetterState.INIT
-      },
+    [
       {
-        letter:'',
-        state:LetterState.INIT
-      },
-      {
-        letter:'',
-        state:LetterState.INIT
-      },
-      {
-        letter:'',
-        state:LetterState.INIT
-      },
-      {
-        letter:'',
-        state:LetterState.INIT
-      }],
-    [{
         letter:'',
         state:LetterState.INIT
       },
@@ -94,7 +95,30 @@ const initTile = [
       {
         letter:'',
         state:LetterState.INIT
-      }],
+      }
+    ],
+    [
+      {
+        letter:'',
+        state:LetterState.INIT
+      },
+      {
+        letter:'',
+        state:LetterState.INIT
+      },
+      {
+        letter:'',
+        state:LetterState.INIT
+      },
+      {
+        letter:'',
+        state:LetterState.INIT
+      },
+      {
+        letter:'',
+        state:LetterState.INIT
+      }
+    ],
     [
       {
         letter:'',
@@ -141,4 +165,13 @@ const initTile = [
     ]
   ]
 
-export{kamus,initTile}
+const getKatahariIni =()=>{
+  const index = Math.floor(Math.random() * kamus.length)
+  return kamus[index]
+}
+
+export{
+  kamus,
+  initTile,
+  getKatahariIni
+}

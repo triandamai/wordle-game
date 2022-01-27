@@ -166,8 +166,18 @@ const initTile = [
   ]
 
 const getKatahariIni =()=>{
-  const index = Math.floor(Math.random() * kamus.length)
-  return kamus[index]
+  try{
+    const search = location.search.replace('?',"")
+    const getAnswer = atob(search)
+    if(getAnswer.length === 5){
+      return getAnswer
+    }
+    const index = Math.floor(Math.random() * kamus.length)
+    return kamus[index]
+  }catch(e){
+    const index = Math.floor(Math.random() * kamus.length)
+    return kamus[index]
+  }
 }
 
 export{

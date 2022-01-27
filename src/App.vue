@@ -9,7 +9,7 @@ const onKeyup = (e:KeyboardEvent) => onKeyPress(e.key)
 
 
 const answer = getKatahariIni()
-console.log(answer)
+// console.log(answer)
 
 let allowInput = true
 const board = ref<Array<Array<{letter:string,state:LetterState}>>>(initTile)
